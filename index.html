@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;500;700&display=swap');
+    :root {
+      --red: #a53d32;
+      --red-i: #FA423B;
+      --white: #DFD7D7;
+      --yellow: #D69C38;
+      --yellow-clean: #DBD857;
+      --blue-alfonse: #809BA4;
+      --metal-edward: #4E5663;
+      --blue-sky: #2D76BA;
+      --black: #111214;
+      --loader-duration: 2s;
+      --translate: 1.3s;
+    }
+    body {
+      font-family: 'Roboto Mono', monospace;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+      background: var(--white);
+    }
+    .page {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+    }
+    .container {
+      position: absolute;
+      z-index: 1;
+
+      display: grid;
+      grid-template-columns: 55% 45%;
+      grid-template-rows: 20% 50% 30%;
+      grid-template-areas: "nav     aside"
+                           "section aside"
+                           "footer  aside";
+
+      height: 100%;
+      width: 100%;
+    }
+    /* Navbar-----------------------------Inicio>>> */
+
+    .navbar {
+      background: var(--red);
+      grid-area: nav;
+      display: flex;
+    }
+    .navbar__content {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      padding: 0 0 0 80px;
+      animation: navbar var(--translate) ease-in-out var(--loader-duration);
+    }
+    @keyframes navbar {
+      0% {
+        transform: translateY(-200px);
+      }
+      100% {
+        transform: translateY(0px);
+      }
+    }
+    .navbar__content img {
+      width: 100px;
+    }
+
+    .navbar__content ul {
+      display: flex;
+      justify-content: space-evenly;
+      list-style: none;
+      padding: 0;
+      width: 450px;
+    }
+    .navbar__content ul li a{
+      text-decoration: none;
+      color: var(--black);
+      font-weight: 500;
+      
+    }
+    /* Navbar-----------------------------Fin>>>  */
+
+    .main-content {
+      display: flex;
+      grid-area: section;
+      flex-direction: column;
+      justify-content: center;
+      animation: main-content var(--translate) ease-in-out var(--loader-duration);
+      padding: 30px 10px 10px 80px;
+      background-color: var(--white);
+      color: var(--red);
+    }
+    .main-content p:first-child {
+      font-size: 30px;
+      font-weight: 300;
+      margin: 0;
+      margin: 0 0 -10px 44px;
+    }
+    .main-content h1 {
+      font-size: 40px;
+      font-weight: 700;
+      margin: 0 0 28px 0;
+      width: 60%;
+      line-height: 50px;
+    }
+    .main-content p:last-child {
+      font-weight: 100px;
+      margin: 0;
+      width: 80%;
+    }
+    @keyframes main-content {
+      0% {
+        transform: translateY(-600px);
+      }
+      100% {
+        transform: translateY(0px);
+      }
+    }
+
+    /* Side-content----------------------Inicio>>> */
+    .side-content {
+      background: var(--white);
+      display: grid;
+      grid-template-columns: repeat(6, 1fr) 5%;
+      align-items: center;
+      grid-area: aside;
+
+    }
+    .side-content img{
+        margin-top: 10%;
+        width: 100%;
+        grid-column: 2/7;
+        grid-row: 1/2;
+        animation: side-content-img .9s ease-in-out var(--loader-duration);
+        z-index: 2;
+    }
+    @keyframes side-content-img {
+      0% {
+        transform: translatex(600px);
+      }
+      100% {
+        transform: translatex(0px);
+      }
+    }
+    .side-content p {
+      transform: rotate(-90deg);
+      font-size: 36px;
+      grid-row: 1/2;
+      grid-column: 1/2;
+      color: var(--black);
+      margin: 0;
+      padding: 0; 
+      width: 130px;
+      margin-top: 90%;
+
+      animation: side-content 1s ease-in-out var(--loader-duration);
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes side-content {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    .side-content div{
+      grid-column: 4/8;
+      grid-row: 1/2;
+      background: var(--blue-alfonse);
+      height: 100%;
+    }
+    /* Side-content--------------------------fin>>> */
+    /* Footer--------------------------fin>>> */
+
+    .footer {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: flex-end;
+      background: var(--metal-edward);
+      border-radius: 0 20px 0 0;
+      transform: translateY(100%);
+      animation-name: footer;
+      animation-duration: 0.5s;
+      animation-delay: 2.5s;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
+    }
+    @keyframes footer {
+      0% {
+        transform: translateY(100%);
+      }
+      100% {
+        transform: translateY(0px);
+      }
+    }
+
+    .footer div:nth-child(1) img {
+      width: 140px;
+
+    }
+    .footer div:nth-child(2) img {
+      width: 182px;
+    }
+    .footer div:nth-child(3) img {
+      width: 90px;
+    }
+    .footer div:nth-child(4) img {
+      width: 133px;
+    }
+
+
+
+    .footer div:hover img {
+      cursor: pointer;
+      transform: translateY(-20px) scale(1.1);
+      transition: 0.3s ease-in-out;
+    }
+    .footer div img {
+      transform: translateY(0px) scale(1);
+      transition: 0.3s ease-in-out;
+    }
+    /* Footer--------------------------fin>>> */
+
+
+    /* Loader-----------------------------Inicio>>> */
+    .loader {
+      background-color: var(--blue-sky);
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      z-index: 3;
+      
+      animation: loader var(--loader-duration) linear forwards 0.1s;
+    }
+    @keyframes loader {
+      0% {
+        opacity: 1;
+        visibility: visible;
+      }
+      95% {
+        opacity: 1;
+        visibility: visible;
+      }
+      100% {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+    .loader div {
+      background: lightblue;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin: 10px;
+
+      transform: scale(0);
+      animation: scaling 2s ease-in-out infinite;
+    }
+    .loader div:nth-child(1) {
+      animation-delay: 0.2s;
+    }
+    .loader div:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+    .loader div:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+    @keyframes scaling {
+      0%, 100% {
+        transform: scale(0.2);
+      }
+      40% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1);
+      }
+    }
+    /* Loader-----------------------------Fin>>>*/
+    /* 
+    
+    Modal---------------------------Inicio>>>*/
+
+    .modal1, .modal2,
+    .modal3, .modal4 {
+      width: 100%;
+      height: 100%;
+      background: rgb(0, 0, 0, 0.5);
+      position: absolute;
+      z-index: 4;
+
+      display: grid;
+      place-items: center;
+      
+    }
+
+    
+    .hidden {
+      display: none;
+    }
+    .visible {
+      display: grid;
+    }
+
+    .modal-container {
+      background: white;
+      width: 50%;
+      height: 50%;
+      display: grid;
+      place-items: center;
+    }
+
+
+    .modal-container-slider {
+      background: white;
+      width: 300px;
+      height: 200px;
+      transform-style: preserve-3d;
+
+    }
+    .cards {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }   
+    .card {
+      background: yellow;
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      transition: transform 0.5s ease;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      width: 40%;
+      height: 90%;
+    }
+    .radio-1 ~ .cards .card-1{
+      transform: translateX(0) scale(1);
+      opacity: 1;
+      z-index: 1;
+    }
+    .radio-2 ~ .cards .card-2 {
+      transform: translateX(40%) scale(0.8);
+      opacity: .5;
+      z-index: 0;
+    }
+    .radio-3 ~ .cards .card-3 {
+      transform: translateX(-40%) scale(0.8);
+      opacity: .5;
+      z-index: 0;
+    }
+
+    .radio-1:checked ~ .cards .card-1,
+    .radio-2:checked ~ .cards .card-2,
+    .radio-3:checked ~ .cards .card-3 {
+      transform: translateX(0) scale(1);
+      opacity: 1;
+      z-index: 1;
+    }
+    .radio-1:checked ~ .cards .card-2,
+    .radio-2:checked ~ .cards .card-3,
+    .radio-3:checked ~ .cards .card-1 {
+      transform: translateX(40%) scale(0.8);
+      opacity: .5;
+      z-index: 0;
+    }
+    .radio-1:checked ~ .cards .card-3,
+    .radio-2:checked ~ .cards .card-1,
+    .radio-3:checked ~ .cards .card-2 {
+      transform: translateX(-40%) scale(0.8);
+      opacity: .5;
+      z-index: 0;
+    }
+
+    .radio-1,
+    .radio-2,
+    .radio-3 {
+      visibility:hidden;
+    }
+
+    .image-card {
+      width: 80%;
+    }
+    /* Modal-----------------------------Fin>>>*/
+
+
+
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <section class="container">
+      <nav class="navbar">
+        <div class="navbar__content">
+          <img src="./img/Logo.gif" alt="">
+          <ul>
+            <li><a href="/">EXCLUSIVOS</a></li>
+            <li><a href="/">NUEVOS</a></li>
+            <li><a href="/">GIFT CARDS</a></li>
+            <li><a href="/">FIND A STORE</a></li>
+          </ul>
+        </div>
+      </nav>
+  
+      <section class="main-content">
+        <p>¡Elige el</p>
+        <h1>Personaje que quieras!</h1>
+        <p>Este es un proyecto inspirado en Fullmetal Alchemist, puedes elegir personajes de peluche para ver su galería de fotos o fanarts y conocer un poco de su historia.
+  
+        </p>
+      </section>
+  
+      <section class="side-content">
+        <p>Fullmetal Alchemist</p>
+        <img src="./img/fondo.png" alt="">
+        <div></div>
+      </section>
+      <section class="footer">
+        <div id="button1">
+          <img src="./img/mustang.png" alt="">
+        </div>
+        <div id="button2">
+          <img src="./img/alphonse.png" alt="">
+        </div>
+        <div id="button3">
+          <img src="./img/Edward.png" alt="">
+        </div>
+        <div id="button4">
+          <img src="./img/winry.png" alt="">
+        </div>
+      </section>
+    </section>
+    <!-- Loader -->
+    <section class="loader">
+      <div></div>
+      <div></div>
+      <div></div>
+    </section>
+    <!-- Modal -->
+    <section >
+      <div class="modal1 hidden">
+        <div class="modal-container">
+          <img class="modal-container-close1" src="https://img.icons8.com/plumpy/30/000000/macos-close.png"/>
+          <div class="modal-container-slider">
+            <input type="radio" name="slider-1" id="radio-1" class="radio-1">
+            <input type="radio" name="slider-1" id="radio-2" class="radio-2">
+            <input type="radio" name="slider-1" id="radio-3" class="radio-3">
+
+            <div class="cards">
+              <label for="radio-1"  class="card card-1">
+                <img class="image-card" src="./img/cards/RoyMustang.png" alt="">
+              </label>
+              <label for="radio-2"  class="card card-2">
+                <img class="image-card" src="./img/cards/RoyMustang2.png" alt="">
+              </label>
+              <label for="radio-3"  class="card card-3">
+                <img class="image-card" src="./img/cards/RoyMustang3.png" alt="">
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal2 hidden">
+        <div class="modal-container">
+          <img class="modal-container-close2" src="https://img.icons8.com/plumpy/30/000000/macos-close.png"/>
+          <div class="modal-container-slider">
+            <input type="radio" name="slider-1" id="radio-4" class="radio-1">
+            <input type="radio" name="slider-1" id="radio-5" class="radio-2">
+            <input type="radio" name="slider-1" id="radio-6" class="radio-3">
+
+            <div class="cards">
+              <label for="radio-4"  class="card card-1">
+                <img class="image-card" src="./img/cards/alphonse.png" alt="">
+              </label>
+              <label for="radio-5"  class="card card-2">
+                <img class="image-card" src="./img/cards/alphonse2.png" alt="">
+              </label>
+              <label for="radio-6"  class="card card-3">
+                <img class="image-card" src="./img/cards/alphonse3.png" alt="">
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal3 hidden">
+        <div class="modal-container">
+          <img class="modal-container-close3" src="https://img.icons8.com/plumpy/30/000000/macos-close.png"/>
+          <div class="modal-container-slider">
+            <input type="radio" name="slider-1" id="radio-7" class="radio-1">
+            <input type="radio" name="slider-1" id="radio-8" class="radio-2">
+            <input type="radio" name="slider-1" id="radio-9" class="radio-3">
+
+            <div class="cards">
+              <label for="radio-7"  class="card card-1">
+                <img class="image-card" src="./img/cards/Edward_Elric.png" alt="">
+              </label>
+              <label for="radio-8"  class="card card-2">
+                <img class="image-card" src="./img/cards/Edward_Elric2.png" alt="">
+              </label>
+              <label for="radio-9"  class="card card-3">
+                <img class="image-card" src="./img/cards/Edward_Elric3.png" alt="">
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal4 hidden">
+        <div class="modal-container">
+          <img class="modal-container-close4" src="https://img.icons8.com/plumpy/30/000000/macos-close.png"/>
+          <div class="modal-container-slider">
+            <input type="radio" name="slider-1" id="radio-10" class="radio-1">
+            <input type="radio" name="slider-1" id="radio-11" class="radio-2">
+            <input type="radio" name="slider-1" id="radio-12" class="radio-3">
+
+            <div class="cards">
+              <label for="radio-10"  class="card card-1">
+                <img class="image-card" src="./img/cards/Winry.png" alt="">
+              </label>
+              <label for="radio-11"  class="card card-2">
+                <img class="image-card" src="./img/cards/Winry2.png" alt="">
+              </label>
+              <label for="radio-12"  class="card card-3">
+                <img class="image-card" src="./img/cards/winry3.png" alt="">
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+</body>
+<script>
+  const button1 = document.getElementById("button1");
+  const button2 = document.getElementById("button2");
+  const button3 = document.getElementById("button3");
+  const button4 = document.getElementById("button4");
+
+  const modal1 = document.querySelector(".modal1");
+  const modal2 = document.querySelector(".modal2");
+  const modal3 = document.querySelector(".modal3");
+  const modal4 = document.querySelector(".modal4");
+
+  const close1 = document.querySelector(".modal-container-close1");
+  const close2 = document.querySelector(".modal-container-close2");
+  const close3 = document.querySelector(".modal-container-close3");
+  const close4 = document.querySelector(".modal-container-close4");
+
+  function activarModal(modal) {
+    modal.classList.remove('hidden');
+    modal.classList.add('visible');
+    // console.log("Se activo")
+  }
+
+  function desactivarModal(modal) {
+    modal.classList.remove('visible');
+    modal.classList.add('hidden');
+    // console.log("Se desactivo")
+  }
+
+  button1.addEventListener('click', () => { activarModal(modal1); })
+  button2.addEventListener('click', () => { activarModal(modal2); })
+  button3.addEventListener('click', () => { activarModal(modal3); })
+  button4.addEventListener('click', () => { activarModal(modal4); })
+
+  close1.addEventListener('click', () => { desactivarModal(modal1) })
+  close2.addEventListener('click', () => { desactivarModal(modal2) })
+  close3.addEventListener('click', () => { desactivarModal(modal3) })
+  close4.addEventListener('click', () => { desactivarModal(modal4) })
+
+</script>
+</html>
